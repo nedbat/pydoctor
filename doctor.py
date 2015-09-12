@@ -34,7 +34,7 @@ def show_version():
     show_symlink_maybe(sys.prefix)
     if hasattr(sys, "real_prefix"):
         print("This is a virtualenv.")
-        print("The real prefix is: {0!r}".format(sys.real_prefix))
+        print("  The real prefix is: {0!r}".format(sys.real_prefix))
         show_symlink_maybe(sys.real_prefix)
     else:
         print("This is not a virtualenv.")
