@@ -1,5 +1,7 @@
 """Show useful things about a Python installation."""
 
+import os
+import os.path
 import sys
 
 
@@ -14,13 +16,26 @@ def section(name):
     return decorator
 
 
+def show_symlink_maybe(filename):
+    if os.path.islink(filename):
+        link = os.readlink(filename)
+        print("  which is a symlink to: {0!r}".format(link))
+        alink = os.path.abspath(os.path.join(os.path.dirname(filename), link))
+        if alink != link:
+            print("    which resolves to: {0!r}".format(alink))
+
+
 @section("version")
 def show_version():
     print("Python version:\n    {0}".format(sys.version.replace("\n", "\n    ")))
     print("Python executable: {0!r}".format(sys.executable))
+    show_symlink_maybe(sys.executable)
     print("Python prefix: {0!r}".format(sys.prefix))
+    show_symlink_maybe(sys.prefix)
     if hasattr(sys, "real_prefix"):
-        print("This is a virtualenv.  The real prefix is: {0!r}".format(sys.real_prefix))
+        print("This is a virtualenv.")
+        print("The real prefix is: {0!r}".format(sys.real_prefix))
+        show_symlink_maybe(sys.real_prefix)
     else:
         print("This is not a virtualenv.")
 
