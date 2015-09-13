@@ -74,6 +74,7 @@ def might_be_a_file(text):
 
 @section("version")
 def show_version():
+    """The version of Python, and other details."""
     print("Python version:\n    {0}".format(sys.version.replace("\n", "\n    ")))
     print("Python implementation: {0!r}".format(platform.python_implementation()))
     print("Python executable: {0!r}".format(sys.executable))
@@ -91,6 +92,7 @@ def show_version():
 
 @section("os")
 def show_os():
+    """Details of the operating system."""
     print("Current directory: {0!r}".format(os.getcwd()))
     more_about_file(os.getcwd())
     print("Platform: {0!r}".format(platform.platform()))
@@ -111,6 +113,7 @@ def show_os():
 
 @section("sizes")
 def show_sizes():
+    """Sizes of integers and pointers."""
     if sys.maxsize == 2**63-1:
         indicates = "indicating 64-bit"
     elif sys.maxsize == 2**31-1:
@@ -126,6 +129,7 @@ def show_sizes():
 
 @section("encoding")
 def show_encoding():
+    """Information about encodings and Unicode."""
     if sys.version_info < (3, 0):
         if sys.maxunicode == 1114111:
             indicates = "indicating a wide Unicode build"
@@ -141,6 +145,7 @@ def show_encoding():
 
 @section("path")
 def show_path():
+    """Details of the path used to find imports."""
     print("sys.path:")
     with indent():
         for p in sys.path:
@@ -150,7 +155,13 @@ def show_path():
 
 def main(words):
     if "help" in words or "--help" in words:
-        print("Sections are: {0}, or all".format(" ".join(SECTIONS)))
+        print("doctor.py [ SECTION ... ]")
+        print("Sections are:")
+        with indent():
+            for section in SECTIONS:
+                fn = SECTION_MAP.get(section)
+                print("{0:10s}   {1}".format(section, fn.__doc__ or ""))
+            print("{0:10s}   {1}".format("all", "All of the above"))
         return
 
     if not words or words == ["all"]:
@@ -162,6 +173,8 @@ def main(words):
             print("*** Don't understand {0!r}".format(word))
         else:
             print("\n--- {0} ----------".format(word))
+            if fn.__doc__:
+                print("# {0}".format(fn.__doc__))
             fn()
 
 
