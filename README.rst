@@ -28,11 +28,16 @@ You can of course also download `doctor.py`_ and read it first to be sure you
 like what it will do.
 
 
+The output consists of a number of sections.  With no arguments, doctor.py will
+print everything.  You can specify section names to get just that information.
+See ``doctor.py --help`` for details.
+
+
 Problems
 ========
 
-If this program fails, or gets something wrong.  Please open an issue to let me
-know.  Pull requests also welcome.
+If this program fails, or gets something wrong, please open an issue to let
+me know.  Pull requests also welcome.
 
 
 .. _sample report: https://raw.githubusercontent.com/nedbat/pydoctor/master/sample_report.txt
