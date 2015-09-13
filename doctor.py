@@ -165,7 +165,7 @@ def show_path():
     with indent():
         for p in sys.path:
             print(repr(p))
-            more_about_file(p)
+            more_about_file(p or ".")
 
 
 def main(words):
