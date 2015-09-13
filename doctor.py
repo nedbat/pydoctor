@@ -1,7 +1,17 @@
-"""Show useful things about a Python installation."""
+"""Show useful things about a Python installation.
+
+Can be used without installation:
+
+    wget -qO - https://raw.githubusercontent.com/nedbat/pydoctor/master/doctor.py | python -
+
+"""
+
+from __future__ import print_function, unicode_literals
 
 import os
 import os.path
+import re
+import platform
 import sys
 
 
@@ -28,6 +38,7 @@ def show_symlink_maybe(filename):
 @section("version")
 def show_version():
     print("Python version:\n    {0}".format(sys.version.replace("\n", "\n    ")))
+    print("Python implementation: {0!r}".format(platform.python_implementation()))
     print("Python executable: {0!r}".format(sys.executable))
     show_symlink_maybe(sys.executable)
     print("Python prefix: {0!r}".format(sys.prefix))
@@ -38,6 +49,23 @@ def show_version():
         show_symlink_maybe(sys.real_prefix)
     else:
         print("This is not a virtualenv.")
+
+
+@section("os")
+def show_os():
+    print("Current directory: {0!r}".format(os.getcwd()))
+    show_symlink_maybe(os.getcwd())
+    print("Platform: {0!r}".format(platform.platform()))
+    print("uname: {0!r}".format(platform.uname()))
+
+    re_envs = r"^(PY|COVER|NOSE)"
+    envs = [ename for ename in os.environ if re.match(re_envs, ename)]
+    if envs:
+        print("Environment variables:")
+        for env in envs:
+            print("  {0} = {1!r}".format(env, os.environ[env]))
+    else:
+        print("Environment variables: none")
 
 
 @section("sizes")
