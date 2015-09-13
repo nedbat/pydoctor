@@ -19,33 +19,46 @@ import sys
 SECTIONS = []
 SECTION_MAP = {}
 
+
 def section(name):
+    """Declare a function for handling a section of the diagnosis."""
     SECTIONS.append(name)
+
     def decorator(func):
         SECTION_MAP[name] = func
         return func
     return decorator
 
+
 print_ = print
 INDENT = 0
 
+
 def print(*stuff):
+    """Our own indent-aware print function."""
     if INDENT:
         print_(" "*INDENT, end="")
     print_(*stuff)
 
 
 @contextlib.contextmanager
-def indent(by=4):
+def indent():
+    """Indent nested prints by a certain amount."""
     global INDENT
     old_indent = INDENT
-    INDENT += by
+    INDENT += 4
     try:
         yield None
     finally:
         INDENT = old_indent
 
+
 def more_about_file(filename, seen=None):
+    """Print more information about a file.
+
+    `seen` is a set of filename already seen, for dealing with symlink loops.
+
+    """
     seen = seen or set()
     with indent():
         if not os.path.exists(filename):
@@ -67,7 +80,9 @@ def more_about_file(filename, seen=None):
                 link = alink
             more_about_file(link, seen)
 
+
 def might_be_a_file(text):
+    """This text might be a file, and if it seems like it is, show more info."""
     if "/" in text or "\\" in text:
         more_about_file(text)
 
@@ -154,6 +169,7 @@ def show_path():
 
 
 def main(words):
+    """Run the doctor!"""
     if "help" in words or "--help" in words:
         print("doctor.py [ SECTION ... ]")
         print("Sections are:")
