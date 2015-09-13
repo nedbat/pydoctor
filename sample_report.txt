@@ -1,0 +1,56 @@
+
+--- version ---------------------------------
+# The version of Python, and other details.
+Python version:
+    3.4.3 (default, Sep 13 2015, 08:46:08) 
+    [GCC 4.2.1 Compatible Apple LLVM 6.1.0 (clang-602.0.53)]
+Python implementation: 'CPython'
+Python executable: '/usr/local/virtualenvs/lab3/bin/python'
+    which is a symlink to: 'python3.4'
+        which resolves to: '/usr/local/virtualenvs/lab3/bin/python3.4'
+Python prefix: '/usr/local/virtualenvs/lab3'
+This is a virtualenv.
+    The real prefix is: '/usr/local/pythonz/pythons/CPython-3.4.3'
+
+--- os --------------------------------------
+# Details of the operating system.
+Current directory: '/Users/ned/pydoctor'
+Platform: 'Darwin-14.5.0-x86_64-i386-64bit'
+uname: uname_result(system='Darwin', node='Neds-MacBook-Pro.local', release='14.5.0', version='Darwin Kernel Version 14.5.0: Wed Jul 29 02:26:53 PDT 2015; root:xnu-2782.40.9~1/RELEASE_X86_64', machine='x86_64', processor='i386')
+Environment variables:
+    PIP_DOWNLOAD_CACHE = '/Users/ned/Downloads/cache_pypi'
+    PYTHONSTARTUP = '/Users/ned/.startup.py'
+    PYTHONZ_ROOT = '/usr/local/pythonz'
+    VIRTUALENVWRAPPER_HOOK_DIR = '/usr/local/virtualenvs'
+    VIRTUALENVWRAPPER_PROJECT_FILENAME = '.project'
+    VIRTUALENVWRAPPER_SCRIPT = '/usr/local/bin/virtualenvwrapper.sh'
+    VIRTUALENVWRAPPER_WORKON_CD = '1'
+    WORKON_HOME = '/usr/local/virtualenvs'
+
+--- sizes -----------------------------------
+# Sizes of integers and pointers.
+sys.maxsize: 9223372036854775807, indicating 64-bit
+sys.maxint doesn't exist
+
+--- encoding --------------------------------
+# Information about encodings and Unicode.
+sys.maxunicode: 1114111, as all Python 3 have
+sys.getdefaultencoding(): 'utf-8'
+sys.getfilesystemencoding(): 'utf-8'
+sys.stdin.encoding: 'UTF-8'
+sys.stdout.encoding: 'UTF-8'
+
+--- path ------------------------------------
+# Details of the path used to find imports.
+sys.path:
+    '/Users/ned/pydoctor'
+    '/usr/local/virtualenvs/lab3/lib/python34.zip'
+        which doesn't exist
+    '/usr/local/virtualenvs/lab3/lib/python3.4'
+    '/usr/local/virtualenvs/lab3/lib/python3.4/plat-darwin'
+        which is a symlink to: '/usr/local/pythonz/pythons/CPython-3.4.3/lib/python3.4/plat-darwin'
+    '/usr/local/virtualenvs/lab3/lib/python3.4/lib-dynload'
+        which is a symlink to: '/usr/local/pythonz/pythons/CPython-3.4.3/lib/python3.4/lib-dynload'
+    '/usr/local/pythonz/pythons/CPython-3.4.3/lib/python3.4'
+    '/usr/local/pythonz/pythons/CPython-3.4.3/lib/python3.4/plat-darwin'
+    '/usr/local/virtualenvs/lab3/lib/python3.4/site-packages'
