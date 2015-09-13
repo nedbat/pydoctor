@@ -58,11 +58,11 @@ def show_os():
     print("Platform: {0!r}".format(platform.platform()))
     print("uname: {0!r}".format(platform.uname()))
 
-    re_envs = r"^(PY|COVER|NOSE)"
+    re_envs = r"^(COVER|NOSE|PEX|PIP|PY|VIRTUALENV|WORKON)"
     envs = [ename for ename in os.environ if re.match(re_envs, ename)]
     if envs:
         print("Environment variables:")
-        for env in envs:
+        for env in sorted(envs):
             print("  {0} = {1!r}".format(env, os.environ[env]))
     else:
         print("Environment variables: none")
