@@ -190,7 +190,7 @@ def main(words):
         if not fn:
             print("*** Don't understand {0!r}".format(word))
         else:
-            print("\n--- {0} ----------".format(word))
+            print("\n--- {0} {1}".format(word, "-"*(40-len(word))))
             if fn.__doc__:
                 print("# {0}".format(fn.__doc__))
             fn()
