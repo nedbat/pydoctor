@@ -2,7 +2,7 @@
 
 Can be used without installation:
 
-    wget -qO - https://raw.githubusercontent.com/nedbat/pydoctor/master/doctor.py | python -
+    wget -qO - http://bit.ly/pydoctor | python -
 
 """
 
