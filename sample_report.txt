@@ -2,23 +2,24 @@
 --- version ---------------------------------
 # The version of Python, and other details.
 Python version:
-    3.4.3 (default, Sep 13 2015, 08:46:08) 
+    2.7.10 (default, May 30 2015, 12:06:13) 
     [GCC 4.2.1 Compatible Apple LLVM 6.1.0 (clang-602.0.53)]
 Python implementation: 'CPython'
-Python executable: '/usr/local/virtualenvs/lab3/bin/python'
-    which is a symlink to: 'python3.4'
-        which resolves to: '/usr/local/virtualenvs/lab3/bin/python3.4'
-Python prefix: '/usr/local/virtualenvs/lab3'
+Python executable: '/usr/local/virtualenvs/stell/bin/python'
+    which is a symlink to: 'python2.7'
+        which resolves to: '/usr/local/virtualenvs/stell/bin/python2.7'
+Python prefix: '/usr/local/virtualenvs/stell'
 This is a virtualenv.
-    The real prefix is: '/usr/local/pythonz/pythons/CPython-3.4.3'
+    The real prefix is: '/usr/local/pythonz/pythons/CPython-2.7.10'
 
 --- os --------------------------------------
 # Details of the operating system.
 Current directory: '/Users/ned/pydoctor'
 Platform: 'Darwin-14.5.0-x86_64-i386-64bit'
-uname: uname_result(system='Darwin', node='Neds-MacBook-Pro.local', release='14.5.0', version='Darwin Kernel Version 14.5.0: Wed Jul 29 02:26:53 PDT 2015; root:xnu-2782.40.9~1/RELEASE_X86_64', machine='x86_64', processor='i386')
+uname: ('Darwin', 'Neds-MacBook-Pro.local', '14.5.0', 'Darwin Kernel Version 14.5.0: Sun Sep 25 22:07:15 PDT 2016; root:xnu-2782.50.9~1/RELEASE_X86_64', 'x86_64', 'i386')
 Environment variables:
-    PIP_DOWNLOAD_CACHE = '/Users/ned/Downloads/cache_pypi'
+    PYTHONPATH = '/Users/ned/web/stellated:/Users/ned/py'
+        which doesn't exist
     PYTHONSTARTUP = '/Users/ned/.startup.py'
     PYTHONZ_ROOT = '/usr/local/pythonz'
     VIRTUALENVWRAPPER_HOOK_DIR = '/usr/local/virtualenvs'
@@ -30,27 +31,40 @@ Environment variables:
 --- sizes -----------------------------------
 # Sizes of integers and pointers.
 sys.maxsize: 9223372036854775807, indicating 64-bit
-sys.maxint doesn't exist
+sys.maxint: 9223372036854775807
 
 --- encoding --------------------------------
 # Information about encodings and Unicode.
-sys.maxunicode: 1114111, as all Python 3 have
-sys.getdefaultencoding(): 'utf-8'
+sys.maxunicode: 65535, indicating a narrow Unicode build
+sys.getdefaultencoding(): 'ascii'
 sys.getfilesystemencoding(): 'utf-8'
 sys.stdin.encoding: 'UTF-8'
-sys.stdout.encoding: 'UTF-8'
+sys.stdout.encoding: None
 
 --- path ------------------------------------
 # Details of the path used to find imports.
 sys.path:
     '/Users/ned/pydoctor'
-    '/usr/local/virtualenvs/lab3/lib/python34.zip'
+    '/Users/ned/web/stellated'
+    '/Users/ned/py'
+    '/usr/local/virtualenvs/stell/lib/python27.zip'
         which doesn't exist
-    '/usr/local/virtualenvs/lab3/lib/python3.4'
-    '/usr/local/virtualenvs/lab3/lib/python3.4/plat-darwin'
-        which is a symlink to: '/usr/local/pythonz/pythons/CPython-3.4.3/lib/python3.4/plat-darwin'
-    '/usr/local/virtualenvs/lab3/lib/python3.4/lib-dynload'
-        which is a symlink to: '/usr/local/pythonz/pythons/CPython-3.4.3/lib/python3.4/lib-dynload'
-    '/usr/local/pythonz/pythons/CPython-3.4.3/lib/python3.4'
-    '/usr/local/pythonz/pythons/CPython-3.4.3/lib/python3.4/plat-darwin'
-    '/usr/local/virtualenvs/lab3/lib/python3.4/site-packages'
+    '/usr/local/virtualenvs/stell/lib/python2.7'
+    '/usr/local/virtualenvs/stell/lib/python2.7/plat-darwin'
+        which doesn't exist
+    '/usr/local/virtualenvs/stell/lib/python2.7/plat-mac'
+        which doesn't exist
+    '/usr/local/virtualenvs/stell/lib/python2.7/plat-mac/lib-scriptpackages'
+        which doesn't exist
+    '/usr/local/virtualenvs/stell/lib/python2.7/lib-tk'
+        which doesn't exist
+    '/usr/local/virtualenvs/stell/lib/python2.7/lib-old'
+        which doesn't exist
+    '/usr/local/virtualenvs/stell/lib/python2.7/lib-dynload'
+        which is a symlink to: '/usr/local/pythonz/pythons/CPython-2.7.10/lib/python2.7/lib-dynload'
+    '/usr/local/pythonz/pythons/CPython-2.7.10/lib/python2.7'
+    '/usr/local/pythonz/pythons/CPython-2.7.10/lib/python2.7/plat-darwin'
+    '/usr/local/pythonz/pythons/CPython-2.7.10/lib/python2.7/lib-tk'
+    '/usr/local/pythonz/pythons/CPython-2.7.10/lib/python2.7/plat-mac'
+    '/usr/local/pythonz/pythons/CPython-2.7.10/lib/python2.7/plat-mac/lib-scriptpackages'
+    '/usr/local/virtualenvs/stell/lib/python2.7/site-packages'
