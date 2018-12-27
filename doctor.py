@@ -20,6 +20,8 @@ import platform
 import sys
 
 
+DOCTOR_VERSION = 2
+
 SECTIONS = []
 SECTION_MAP = {}
 
@@ -187,6 +189,7 @@ def show_path():
 
 def main(words):
     """Run the doctor!"""
+    print("doctor.py version {0}".format(DOCTOR_VERSION))
     if "help" in words or "--help" in words:
         print("doctor.py [ SECTION ... ]")
         print("Sections are:")
