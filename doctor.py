@@ -12,6 +12,7 @@ Can be used without installation:
 from __future__ import print_function, unicode_literals
 
 import contextlib
+import locale
 import os
 import os.path
 import re
@@ -159,6 +160,7 @@ def show_encoding():
 
     print("sys.getdefaultencoding(): {0!r}".format(sys.getdefaultencoding()))
     print("sys.getfilesystemencoding(): {0!r}".format(sys.getfilesystemencoding()))
+    print("locale.getpreferredencoding(): {0!r}".format(locale.getpreferredencoding()))
     print("sys.stdin.encoding: {0!r}".format(sys.stdin.encoding))
     print("sys.stdout.encoding: {0!r}".format(sys.stdout.encoding))
 
