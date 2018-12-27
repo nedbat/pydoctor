@@ -165,6 +165,16 @@ def show_encoding():
     print("sys.stdout.encoding: {0!r}".format(sys.stdout.encoding))
 
 
+@section("locale")
+def show_locale():
+    """Information about locale."""
+    print("locale.getpreferredencoding(): {0!r}".format(locale.getpreferredencoding()))
+    for name in dir(locale):
+        if name.startswith("LC_") and name != "LC_ALL":
+            val = locale.getlocale(getattr(locale, name))
+            print("locale.getlocale({0}): {1!r}".format(name, val))
+
+
 @section("path")
 def show_path():
     """Details of the path used to find imports."""
