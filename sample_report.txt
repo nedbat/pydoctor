@@ -1,25 +1,24 @@
+doctor.py version 4
 
 --- version ---------------------------------
 # The version of Python, and other details.
 Python version:
-    2.7.10 (default, May 30 2015, 12:06:13) 
-    [GCC 4.2.1 Compatible Apple LLVM 6.1.0 (clang-602.0.53)]
+    3.6.7 (tags/v3.6.7:6ec5cf24b7, Oct 20 2018, 18:46:30) 
+    [GCC 4.2.1 Compatible Apple LLVM 10.0.0 (clang-1000.11.45.2)]
 Python implementation: 'CPython'
-Python executable: '/usr/local/virtualenvs/stell/bin/python'
-    which is a symlink to: 'python2.7'
-        which resolves to: '/usr/local/virtualenvs/stell/bin/python2.7'
-Python prefix: '/usr/local/virtualenvs/stell'
+Python executable: '/usr/local/virtualenvs/coverage/bin/python'
+    which is a symlink to: 'python3.6'
+        which resolves to: '/usr/local/virtualenvs/coverage/bin/python3.6'
+Python prefix: '/usr/local/virtualenvs/coverage'
 This is a virtualenv.
-    The real prefix is: '/usr/local/pythonz/pythons/CPython-2.7.10'
+    The real prefix is: '/usr/local/py/cpython-v3.6.7'
 
 --- os --------------------------------------
 # Details of the operating system.
-Current directory: '/Users/ned/pydoctor'
-Platform: 'Darwin-14.5.0-x86_64-i386-64bit'
-uname: ('Darwin', 'Neds-MacBook-Pro.local', '14.5.0', 'Darwin Kernel Version 14.5.0: Sun Sep 25 22:07:15 PDT 2016; root:xnu-2782.50.9~1/RELEASE_X86_64', 'x86_64', 'i386')
-Environment variables:
-    PYTHONPATH = '/Users/ned/web/stellated:/Users/ned/py'
-        which doesn't exist
+Current directory: '/Users/ned/coverage/trunk'
+Platform: 'Darwin-17.7.0-x86_64-i386-64bit'
+uname: uname_result(system='Darwin', node='C02V31VQHTDD.local', release='17.7.0', version='Darwin Kernel Version 17.7.0: Sun Jun  2 20:31:42 PDT 2019; root:xnu-4570.71.46~1/RELEASE_X86_64', machine='x86_64', processor='i386')
+Environment variables matching ^(COVER|NOSE|PEX|PIP|PY|VIRTUALENV|WORKON):
     PYTHONSTARTUP = '/Users/ned/.startup.py'
     PYTHONZ_ROOT = '/usr/local/pythonz'
     VIRTUALENVWRAPPER_HOOK_DIR = '/usr/local/virtualenvs'
@@ -27,44 +26,58 @@ Environment variables:
     VIRTUALENVWRAPPER_SCRIPT = '/usr/local/bin/virtualenvwrapper.sh'
     VIRTUALENVWRAPPER_WORKON_CD = '1'
     WORKON_HOME = '/usr/local/virtualenvs'
+$PATH:
+    '/usr/local/virtualenvs/coverage/bin'
+    '/Users/ned/.rbenv/shims'
+    '/usr/local/pythonz/bin'
+    '/Users/ned/bin'
+    '/usr/local/bin'
+    '/opt/local/bin'
+    '/usr/local/bin'
+    '/usr/bin'
+    '/bin'
+    '/usr/sbin'
+    '/sbin'
+    '/opt/X11/bin'
+    '/Applications/Wireshark.app/Contents/MacOS'
+    '/usr/sbin'
+    '/Applications/Postgres.app/Contents/Versions/latest/bin'
+    '/usr/local/Cellar/gettext/0.20.1/bin'
+    '/usr/local/opt/fzf/bin'
 
 --- sizes -----------------------------------
 # Sizes of integers and pointers.
 sys.maxsize: 9223372036854775807, indicating 64-bit
-sys.maxint: 9223372036854775807
+sys.maxint doesn't exist
 
 --- encoding --------------------------------
 # Information about encodings and Unicode.
-sys.maxunicode: 65535, indicating a narrow Unicode build
-sys.getdefaultencoding(): 'ascii'
+sys.maxunicode: 1114111, as all Python >=3.3 have
+sys.getdefaultencoding(): 'utf-8'
 sys.getfilesystemencoding(): 'utf-8'
+locale.getpreferredencoding(): 'UTF-8'
 sys.stdin.encoding: 'UTF-8'
-sys.stdout.encoding: None
+sys.stdout.encoding: 'UTF-8'
+
+--- locale ----------------------------------
+# Information about locale.
+locale.getpreferredencoding(): 'UTF-8'
+locale.getlocale(LC_COLLATE): (None, None)
+locale.getlocale(LC_CTYPE): ('en_US', 'UTF-8')
+locale.getlocale(LC_MESSAGES): (None, None)
+locale.getlocale(LC_MONETARY): (None, None)
+locale.getlocale(LC_NUMERIC): (None, None)
+locale.getlocale(LC_TIME): (None, None)
 
 --- path ------------------------------------
 # Details of the path used to find imports.
 sys.path:
-    '/Users/ned/pydoctor'
-    '/Users/ned/web/stellated'
-    '/Users/ned/py'
-    '/usr/local/virtualenvs/stell/lib/python27.zip'
+    ''
+    '/usr/local/virtualenvs/coverage/lib/python36.zip'
         which doesn't exist
-    '/usr/local/virtualenvs/stell/lib/python2.7'
-    '/usr/local/virtualenvs/stell/lib/python2.7/plat-darwin'
-        which doesn't exist
-    '/usr/local/virtualenvs/stell/lib/python2.7/plat-mac'
-        which doesn't exist
-    '/usr/local/virtualenvs/stell/lib/python2.7/plat-mac/lib-scriptpackages'
-        which doesn't exist
-    '/usr/local/virtualenvs/stell/lib/python2.7/lib-tk'
-        which doesn't exist
-    '/usr/local/virtualenvs/stell/lib/python2.7/lib-old'
-        which doesn't exist
-    '/usr/local/virtualenvs/stell/lib/python2.7/lib-dynload'
-        which is a symlink to: '/usr/local/pythonz/pythons/CPython-2.7.10/lib/python2.7/lib-dynload'
-    '/usr/local/pythonz/pythons/CPython-2.7.10/lib/python2.7'
-    '/usr/local/pythonz/pythons/CPython-2.7.10/lib/python2.7/plat-darwin'
-    '/usr/local/pythonz/pythons/CPython-2.7.10/lib/python2.7/lib-tk'
-    '/usr/local/pythonz/pythons/CPython-2.7.10/lib/python2.7/plat-mac'
-    '/usr/local/pythonz/pythons/CPython-2.7.10/lib/python2.7/plat-mac/lib-scriptpackages'
-    '/usr/local/virtualenvs/stell/lib/python2.7/site-packages'
+    '/usr/local/virtualenvs/coverage/lib/python3.6'
+    '/usr/local/virtualenvs/coverage/lib/python3.6/lib-dynload'
+        which is a symlink to: '/usr/local/py/cpython-v3.6.7/lib/python3.6/lib-dynload'
+    '/usr/local/py/cpython-v3.6.7/lib/python3.6'
+    '/usr/local/virtualenvs/coverage/lib/python3.6/site-packages'
+    '/Users/ned/coverage/trunk'
