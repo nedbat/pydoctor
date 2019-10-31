@@ -20,7 +20,7 @@ import platform
 import sys
 
 
-DOCTOR_VERSION = 3
+DOCTOR_VERSION = 4
 
 SECTIONS = []
 SECTION_MAP = {}
@@ -120,16 +120,30 @@ def show_os():
     print("uname: {0!r}".format(platform.uname()))
 
     re_envs = r"^(COVER|NOSE|PEX|PIP|PY|VIRTUALENV|WORKON)"
+    label = "Environment variables matching {0}".format(re_envs)
     envs = [ename for ename in os.environ if re.match(re_envs, ename)]
     if envs:
-        print("Environment variables:")
+        print("{0}:".format(label))
         with indent():
             for env in sorted(envs):
                 val = os.environ[env]
                 print("{0} = {1!r}".format(env, val))
                 might_be_a_file(val)
+                if os.pathsep in val:
+                    with indent():
+                        print("looks like a path:")
+                        with indent():
+                            for pathval in val.split(os.pathsep):
+                                print("{0!r}".format(pathval))
+                                might_be_a_file(pathval)
     else:
-        print("Environment variables: none")
+        print("{0}: none".format(label))
+
+    print("$PATH:")
+    with indent():
+        for p in os.environ['PATH'].split(os.pathsep):
+            print(repr(p))
+            more_about_file(p or ".")
 
 
 @section("sizes")
