@@ -1,49 +1,98 @@
-doctor.py version 4
+doctor.py version 5
+sys.argv: ['doctor.py']
 
 --- version ---------------------------------
 # The version of Python, and other details.
 Python version:
-    3.6.7 (tags/v3.6.7:6ec5cf24b7, Oct 20 2018, 18:46:30) 
-    [GCC 4.2.1 Compatible Apple LLVM 10.0.0 (clang-1000.11.45.2)]
+    3.6.9 (default, Jul 29 2019, 08:21:55) 
+    [GCC 4.2.1 Compatible Apple LLVM 10.0.0 (clang-1000.10.44.4)]
 Python implementation: 'CPython'
-Python executable: '/usr/local/virtualenvs/coverage/bin/python'
+Python executable: '/usr/local/virtualenvs/coverage_report-Lu5LO_60/bin/python'
     which is a symlink to: 'python3.6'
-        which resolves to: '/usr/local/virtualenvs/coverage/bin/python3.6'
-Python prefix: '/usr/local/virtualenvs/coverage'
+        which resolves to: '/usr/local/virtualenvs/coverage_report-Lu5LO_60/bin/python3.6'
+        which is a file with length 3087720
+Python prefix: '/usr/local/virtualenvs/coverage_report-Lu5LO_60'
+    which is a directory with 4 entries
 This is a virtualenv.
-    The real prefix is: '/usr/local/py/cpython-v3.6.7'
+    The real prefix is: '/usr/local/pythonz/pythons/CPython-3.6.9'
+        which is a directory with 4 entries
 
 --- os --------------------------------------
 # Details of the operating system.
-Current directory: '/Users/ned/coverage/trunk'
+Current directory: '/Users/ned/pydoctor'
+    which is a directory with 5 entries
 Platform: 'Darwin-17.7.0-x86_64-i386-64bit'
 uname: uname_result(system='Darwin', node='C02V31VQHTDD.local', release='17.7.0', version='Darwin Kernel Version 17.7.0: Sun Jun  2 20:31:42 PDT 2019; root:xnu-4570.71.46~1/RELEASE_X86_64', machine='x86_64', processor='i386')
 Environment variables matching ^(COVER|NOSE|PEX|PIP|PY|VIRTUALENV|WORKON):
+    PIPENV_ACTIVE = '1'
+    PIP_DISABLE_PIP_VERSION_CHECK = '1'
+    PIP_PYTHON_PATH = '/usr/local/bin/python3.7'
+        which is a symlink to: '/usr/local/pythonz/pythons/CPython-3.7.4/bin/python3.7'
+            which is a file with length 3312208
+    PYTHONDONTWRITEBYTECODE = '1'
     PYTHONSTARTUP = '/Users/ned/.startup.py'
+        which is a file with length 1400
     PYTHONZ_ROOT = '/usr/local/pythonz'
+        which is a directory with 8 entries
     VIRTUALENVWRAPPER_HOOK_DIR = '/usr/local/virtualenvs'
+        which is a directory with 54 entries
     VIRTUALENVWRAPPER_PROJECT_FILENAME = '.project'
     VIRTUALENVWRAPPER_SCRIPT = '/usr/local/bin/virtualenvwrapper.sh'
+        which is a file with length 41384
     VIRTUALENVWRAPPER_WORKON_CD = '1'
     WORKON_HOME = '/usr/local/virtualenvs'
+        which is a directory with 54 entries
 $PATH:
-    '/usr/local/virtualenvs/coverage/bin'
+    '/usr/local/virtualenvs/coverage_report-Lu5LO_60/bin'
+        which is a directory with 23 entries
     '/Users/ned/.rbenv/shims'
+        which is a directory with 20 entries
     '/usr/local/pythonz/bin'
+        which is a directory with 1 entries
     '/Users/ned/bin'
+        which is a directory with 22 entries
     '/usr/local/bin'
+        which is a directory with 1417 entries
     '/opt/local/bin'
+        which is a directory with 1 entries
+    '/Users/ned/.rbenv/shims'
+        which is a directory with 20 entries
+    '/usr/local/pythonz/bin'
+        which is a directory with 1 entries
+    '/Users/ned/bin'
+        which is a directory with 22 entries
     '/usr/local/bin'
+        which is a directory with 1417 entries
+    '/opt/local/bin'
+        which is a directory with 1 entries
+    '/usr/local/bin'
+        which is a directory with 1417 entries
     '/usr/bin'
+        which is a directory with 977 entries
     '/bin'
+        which is a directory with 36 entries
     '/usr/sbin'
+        which is a directory with 246 entries
     '/sbin'
+        which is a directory with 61 entries
     '/opt/X11/bin'
+        which is a directory with 126 entries
     '/Applications/Wireshark.app/Contents/MacOS'
+        which is a directory with 15 entries
     '/usr/sbin'
+        which is a directory with 246 entries
     '/Applications/Postgres.app/Contents/Versions/latest/bin'
+        which is a directory with 64 entries
     '/usr/local/Cellar/gettext/0.20.1/bin'
+        which is a directory with 22 entries
     '/usr/local/opt/fzf/bin'
+        which is a directory with 2 entries
+    '/usr/sbin'
+        which is a directory with 246 entries
+    '/Applications/Postgres.app/Contents/Versions/latest/bin'
+        which is a directory with 64 entries
+    '/usr/local/Cellar/gettext/0.20.1/bin'
+        which is a directory with 22 entries
 
 --- sizes -----------------------------------
 # Sizes of integers and pointers.
@@ -72,12 +121,16 @@ locale.getlocale(LC_TIME): (None, None)
 --- path ------------------------------------
 # Details of the path used to find imports.
 sys.path:
-    ''
-    '/usr/local/virtualenvs/coverage/lib/python36.zip'
+    '/Users/ned/pydoctor'
+        which is a directory with 5 entries
+    '/usr/local/virtualenvs/coverage_report-Lu5LO_60/lib/python36.zip'
         which doesn't exist
-    '/usr/local/virtualenvs/coverage/lib/python3.6'
-    '/usr/local/virtualenvs/coverage/lib/python3.6/lib-dynload'
-        which is a symlink to: '/usr/local/py/cpython-v3.6.7/lib/python3.6/lib-dynload'
-    '/usr/local/py/cpython-v3.6.7/lib/python3.6'
-    '/usr/local/virtualenvs/coverage/lib/python3.6/site-packages'
-    '/Users/ned/coverage/trunk'
+    '/usr/local/virtualenvs/coverage_report-Lu5LO_60/lib/python3.6'
+        which is a directory with 56 entries
+    '/usr/local/virtualenvs/coverage_report-Lu5LO_60/lib/python3.6/lib-dynload'
+        which is a symlink to: '/usr/local/pythonz/pythons/CPython-3.6.9/lib/python3.6/lib-dynload'
+            which is a directory with 66 entries
+    '/usr/local/pythonz/pythons/CPython-3.6.9/lib/python3.6'
+        which is a directory with 204 entries
+    '/usr/local/virtualenvs/coverage_report-Lu5LO_60/lib/python3.6/site-packages'
+        which is a directory with 19 entries

@@ -20,7 +20,7 @@ import platform
 import sys
 
 
-DOCTOR_VERSION = 4
+DOCTOR_VERSION = 5
 
 SECTIONS = []
 SECTION_MAP = {}
@@ -69,7 +69,7 @@ def more_about_file(filename, seen=None):
     with indent():
         if not os.path.exists(filename):
             print("which doesn't exist")
-        if os.path.islink(filename):
+        elif os.path.islink(filename):
             link = os.readlink(filename)
             print("which is a symlink to: {0!r}".format(link))
             if link in seen:
@@ -85,6 +85,10 @@ def more_about_file(filename, seen=None):
                 seen.add(alink)
                 link = alink
             more_about_file(link, seen)
+        elif os.path.isdir(filename):
+            print("which is a directory with {0} entries".format(len(os.listdir(filename))))
+        else:
+            print("which is a file with length {0}".format(os.path.getsize(filename)))
 
 
 def might_be_a_file(text):
@@ -204,6 +208,8 @@ def show_path():
 def main(words):
     """Run the doctor!"""
     print("doctor.py version {0}".format(DOCTOR_VERSION))
+    print("sys.argv: {0!r}".format(sys.argv))
+
     if "help" in words or "--help" in words:
         print("doctor.py [ SECTION ... ]")
         print("Sections are:")
