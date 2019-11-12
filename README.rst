@@ -22,7 +22,7 @@ Running the doctor
 
 The simplest way to run this is directly from GitHub::
 
-    $ wget -qO - http://bit.ly/pydoctor | python -
+    $ wget -qO - https://bit.ly/pydoctor | python -
 
 You can of course also download `doctor.py`_ and read it first to be sure you
 like what it will do.
