@@ -24,9 +24,12 @@ The simplest way to run this is directly from GitHub::
 
     $ wget -qO - https://bit.ly/pydoctor | python -
 
+or::
+
+    python -c "import urllib.request as r; exec(r.urlopen('https://bit.ly/pydoctor').read())"
+
 You can of course also download `doctor.py`_ and read it first to be sure you
 like what it will do.
-
 
 The output consists of a number of sections.  With no arguments, doctor.py will
 print everything.  You can specify section names to get just that information.
