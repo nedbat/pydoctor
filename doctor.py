@@ -106,11 +106,18 @@ def show_version():
     more_about_file(sys.executable)
     print("Python prefix: {0!r}".format(sys.prefix))
     more_about_file(sys.prefix)
+    if hasattr(sys, "base_prefix"):
+        print("Python base_prefix: {0!r}".format(sys.base_prefix))
+        more_about_file(sys.base_prefix)
+    else:
+        print("There is no base_prefix")
     if hasattr(sys, "real_prefix"):
         print("This is a virtualenv.")
         with indent():
-            print("The real prefix is: {0!r}".format(sys.real_prefix))
+            print("The real_prefix is: {0!r}".format(sys.real_prefix))
             more_about_file(sys.real_prefix)
+    elif hasattr(sys, "base_prefix") and sys.prefix != sys.base_prefix:
+        print("This is a venv virtualenv.")
     else:
         print("This is not a virtualenv.")
 
