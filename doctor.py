@@ -20,7 +20,7 @@ import platform
 import sys
 
 
-DOCTOR_VERSION = 5
+DOCTOR_VERSION = 6
 
 SECTIONS = []
 SECTION_MAP = {}
@@ -120,6 +120,10 @@ def show_version():
         print("This is a venv virtualenv.")
     else:
         print("This is not a virtualenv.")
+    print("Python build:")
+    with indent():
+        print("branch: {0!r}".format(platform.python_branch()))
+        print("revision: {0!r}".format(platform.python_revision()))
 
 
 @section("os")
