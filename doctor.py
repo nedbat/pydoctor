@@ -12,6 +12,7 @@ Can be used without installation:
 from __future__ import print_function, unicode_literals
 
 import contextlib
+import glob
 import locale
 import os
 import os.path
@@ -20,7 +21,7 @@ import platform
 import sys
 
 
-DOCTOR_VERSION = 6
+DOCTOR_VERSION = 7
 
 SECTIONS = []
 SECTION_MAP = {}
@@ -214,6 +215,12 @@ def show_path():
         for p in sys.path:
             print(repr(p))
             more_about_file(p or ".")
+            for pth in sorted(glob.glob(p + "/*.pth")):
+                with indent():
+                    print("pth file:", repr(pth))
+                    with indent():
+                        with open(pth) as fpth:
+                            print(repr(fpth.read()))
 
 
 def main(words):
