@@ -9,6 +9,8 @@ Can be used without installation:
 
 """
 
+# This file should remain compatible with Python 2.7.
+
 from __future__ import print_function, unicode_literals
 
 import contextlib
@@ -88,7 +90,13 @@ def more_about_file(filename, seen=None):
             else:
                 more_about_file(link, seen)
         elif os.path.isdir(filename):
-            print("which is a directory with {0} entries".format(len(os.listdir(filename))))
+            num_entries = len(os.listdir(filename))
+            if num_entries == 0:
+                print("which is an empty directory")
+            elif num_entries == 1:
+                print("which is a directory with 1 entry")
+            else:
+                print("which is a directory with {0} entries".format(num_entries))
         else:
             print("which is a file with length {0}".format(os.path.getsize(filename)))
 
