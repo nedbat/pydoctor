@@ -21,7 +21,7 @@ import platform
 import sys
 
 
-DOCTOR_VERSION = 7
+DOCTOR_VERSION = 8
 
 SECTIONS = []
 SECTION_MAP = {}
@@ -80,12 +80,13 @@ def more_about_file(filename, seen=None):
             if alink != link:
                 with indent():
                     print("which resolves to: {0!r}".format(alink))
-                if alink in seen:
-                    print("which we have seen already")
-                    return
-                seen.add(alink)
-                link = alink
-            more_about_file(link, seen)
+                    if alink in seen:
+                        print("which we have seen already")
+                        return
+                    seen.add(alink)
+                    more_about_file(alink, seen)
+            else:
+                more_about_file(link, seen)
         elif os.path.isdir(filename):
             print("which is a directory with {0} entries".format(len(os.listdir(filename))))
         else:
