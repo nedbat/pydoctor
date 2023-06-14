@@ -135,17 +135,22 @@ def show_os():
     print("Platform: {0!r}".format(platform.platform()))
     print("uname: {0!r}".format(platform.uname()))
 
-    re_envs = r"^(COVER|NOSE|PEX|PIP|PY|VIRTUALENV|WORKON)"
+    re_envs = r"^(COVER|NOSE|PEX|PIP|PY|TWINE|VIRTUALENV|WORKON)"
+    re_cloak = r"API|TOKEN|KEY|SECRET|PASS|SIGNATURE"
     label = "Environment variables matching {0}".format(re_envs)
-    envs = [ename for ename in os.environ if re.match(re_envs, ename)]
+    envs = [ename for ename in os.environ if re.search(re_envs, ename)]
     if envs:
         print("{0}:".format(label))
         with indent():
             for env in sorted(envs):
                 val = os.environ[env]
-                print("{0} = {1!r}".format(env, val))
+                cloaked = ""
+                if re.search(re_cloak, env):
+                    val = re.sub(r"\w", "*", val)
+                    cloaked = " (cloaked)"
+                print("{0}{1} = {2!r}".format(env, cloaked, val))
                 might_be_a_file(val)
-                if os.pathsep in val:
+                if os.pathsep in val and "WARNINGS" not in env:
                     with indent():
                         print("looks like a path:")
                         with indent():
