@@ -23,7 +23,7 @@ import platform
 import sys
 
 
-DOCTOR_VERSION = 8
+DOCTOR_VERSION = 9
 
 SECTIONS = []
 SECTION_MAP = {}
@@ -90,15 +90,24 @@ def more_about_file(filename, seen=None):
             else:
                 more_about_file(link, seen)
         elif os.path.isdir(filename):
-            num_entries = len(os.listdir(filename))
+            contents = os.listdir(filename)
+            num_entries = len(contents)
             if num_entries == 0:
                 print("which is an empty directory")
             elif num_entries == 1:
-                print("which is a directory with 1 entry")
+                print("which is a directory with 1 entry: {0!r}".format(contents[0]))
             else:
-                print("which is a directory with {0} entries".format(num_entries))
+                print("which is a directory with {0} entries:".format(num_entries))
+                with indent():
+                    to_show = 6
+                    names = ", ".join(repr(n) for n in contents[:to_show])
+                    if num_entries > to_show:
+                        more = ", and {0} more".format(num_entries - to_show)
+                    else:
+                        more = ""
+                    print(names + more)
         else:
-            print("which is a file with length {0}".format(os.path.getsize(filename)))
+            print("which is a file {0} bytes long".format(os.path.getsize(filename)))
 
 
 def might_be_a_file(text):
