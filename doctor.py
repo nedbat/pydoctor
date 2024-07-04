@@ -151,6 +151,11 @@ def show_os():
     print("Current directory: {0!r}".format(os.getcwd()))
     more_about_file(os.getcwd())
     print("Platform: {0!r}".format(platform.platform()))
+    if sys.platform.startswith("linux"):
+        os_release = platform.freedesktop_os_release()
+        print("On Linux: {0!r}".format(os_release["PRETTY_NAME"]))
+        if "VERSION" in os_release:
+            print("Linux version: {0!r}".format(os_release["VERSION"]))
     print("uname: {0!r}".format(platform.uname()))
 
     re_envs = r"^(COVER|NOSE|PEX|PIP|PY|TWINE|VIRTUALENV|WORKON)"
