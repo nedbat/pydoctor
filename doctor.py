@@ -209,6 +209,8 @@ def show_encoding():
             indicates = "indicating a wide Unicode build"
         elif sys.maxunicode == 65535:
             indicates = "indicating a narrow Unicode build"
+        else:
+            indicates = "not sure what that means"
     else:
         indicates = "as all Python >=3.3 have"
     print("sys.maxunicode: {0!r}, {1}".format(sys.maxunicode, indicates))
