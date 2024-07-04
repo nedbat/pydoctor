@@ -158,6 +158,10 @@ def show_os():
             print("Linux version: {0!r}".format(os_release["VERSION"]))
     print("uname: {0!r}".format(platform.uname()))
 
+
+@section("env")
+def show_env():
+    """Details of the environment."""
     re_envs = r"^(COVER|NOSE|PEX|PIP|PY|TWINE|VIRTUALENV|WORKON)"
     re_cloak = r"API|TOKEN|KEY|SECRET|PASS|SIGNATURE"
     label = "Environment variables matching {0}".format(re_envs)
