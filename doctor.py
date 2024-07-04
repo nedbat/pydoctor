@@ -156,6 +156,15 @@ def show_os():
         print("On Linux: {0!r}".format(os_release["PRETTY_NAME"]))
         if "VERSION" in os_release:
             print("Linux version: {0!r}".format(os_release["VERSION"]))
+    elif sys.platform.startswith("win32"):
+        print("On Windows: {0} {1} {2} {3}".format(*platform.win32_ver()))
+    elif sys.platform.startswith("darwin"):
+        release, version_info, machine = platform.mac_ver()
+        version = "{0} {1} {2}".format(*version_info)
+        print("On macOS: {0} {1} {2}".format(release, version, machine))
+    else:
+        info = platform.system(), platform.release(), platform.version()
+        print("On {0!r}: {1} {2}".format(*platform.system_alias(*info)))
     print("uname: {0!r}".format(platform.uname()))
 
 
