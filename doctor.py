@@ -218,6 +218,8 @@ def show_encoding():
     print("locale.getpreferredencoding(): {0!r}".format(locale.getpreferredencoding()))
     print("sys.stdin.encoding: {0!r}".format(sys.stdin.encoding))
     print("sys.stdout.encoding: {0!r}".format(sys.stdout.encoding))
+    print("os.device_encoding(0) (stdin): {0!r}".format(os.device_encoding(0)))
+    print("os.device_encoding(1) (stdout): {0!r}".format(os.device_encoding(1)))
 
 
 @section("locale")
