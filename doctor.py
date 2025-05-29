@@ -5,7 +5,11 @@
 
 Can be used without installation:
 
-    wget -qO - http://bit.ly/pydoctor | python -
+    wget -qO - https://bit.ly/pydoctor | python -
+
+or:
+
+    curl -sL https://bit.ly/pydoctor | python -
 
 """
 
