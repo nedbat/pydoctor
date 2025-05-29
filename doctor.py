@@ -27,7 +27,7 @@ import platform
 import sys
 
 
-DOCTOR_VERSION = 9
+DOCTOR_VERSION = 10
 
 SECTIONS = []
 SECTION_MAP = {}
@@ -94,6 +94,8 @@ def more_about_file(filename, seen=None):
             else:
                 more_about_file(link, seen)
         elif os.path.isdir(filename):
+            if filename == ".":
+                print("which means the current directory: {0!r}".format(os.getcwd()))
             contents = os.listdir(filename)
             num_entries = len(contents)
             if num_entries == 0:
