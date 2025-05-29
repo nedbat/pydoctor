@@ -128,6 +128,10 @@ def show_version():
     """The version of Python, and other details."""
     print("Python version:\n    {0}".format(sys.version.replace("\n", "\n    ")))
     print("Python implementation: {0!r}".format(platform.python_implementation()))
+    if getattr(sys, '_is_gil_enabled', lambda: True)():
+        print("There is a GIL")
+    else:
+        print("There is no GIL")
     print("Python executable: {0!r}".format(sys.executable))
     more_about_file(sys.executable)
     print("Python prefix: {0!r}".format(sys.prefix))
