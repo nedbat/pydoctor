@@ -100,11 +100,12 @@ def more_about_file(filename, seen=None):
                 print("which is a directory with {0} entries:".format(num_entries))
                 with indent():
                     to_show = 6
-                    names = ", ".join(repr(n) for n in contents[:to_show])
-                    if num_entries > to_show:
+                    more = ""
+                    if num_entries == to_show + 1:
+                        to_show += 1
+                    elif num_entries > to_show:
                         more = ", and {0} more".format(num_entries - to_show)
-                    else:
-                        more = ""
+                    names = ", ".join(repr(n) for n in contents[:to_show])
                     print(names + more)
         else:
             print("which is a file {0} bytes long".format(os.path.getsize(filename)))
