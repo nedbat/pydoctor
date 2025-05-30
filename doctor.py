@@ -17,6 +17,10 @@ or:
 
 from __future__ import print_function, unicode_literals
 
+import sys  # Import first to get loaded modules on start
+
+LOADED_MODULES = list(sys.modules.items())
+
 import contextlib
 import glob
 import locale
@@ -24,7 +28,7 @@ import os
 import os.path
 import re
 import platform
-import sys
+import sysconfig
 
 
 DOCTOR_VERSION = 10
@@ -162,8 +166,44 @@ def show_os():
     print("Current directory: {0!r}".format(os.getcwd()))
     more_about_file(os.getcwd())
     print("Platform: {0!r}".format(platform.platform()))
+    if sys.platform.startswith("linux"):
+        os_release = platform.freedesktop_os_release()
+        print("On Linux: {0!r}".format(os_release["PRETTY_NAME"]))
+        if "VERSION" in os_release:
+            print("Linux version: {0!r}".format(os_release["VERSION"]))
+    elif sys.platform.startswith("win32"):
+        print("On Windows: {0} {1} {2} {3}".format(*platform.win32_ver()))
+    elif sys.platform.startswith("darwin"):
+        release, version_info, machine = platform.mac_ver()
+        version = "{0} {1} {2}".format(*version_info)
+        print("On macOS: {0} {1} {2}".format(release, version, machine))
+    else:
+        info = platform.system(), platform.release(), platform.version()
+        print("On {0!r}: {1} {2}".format(*platform.system_alias(*info)))
     print("uname: {0!r}".format(platform.uname()))
 
+
+@section("process")
+def show_process():
+    """Details of the current Python process."""
+    print("Is Python installed: {0}".format(not sysconfig.is_python_build()))
+    print("PID: {0!r}".format(os.getpid()))
+    print("Tracer: {0!r}".format(sys.gettrace()))
+    print("Profiler: {0!r}".format(sys.getprofile()))
+    print("Recursion limit: {0!r}".format( sys.getrecursionlimit()))
+    print("Flags: {0!r}".format(sys.flags))
+    # Not sure if we're not filtering too much, but it still reports interesting modules
+    stdlib_prefix = sysconfig.get_path("stdlib").replace("\\", "\\\\")
+    modules = ["{0!r}: {1!r}".format(name, mod) for name, mod in LOADED_MODULES]
+    modules = [entry for entry in modules if stdlib_prefix not in entry]
+    modules = [entry for entry in modules if " (built-in)>" not in entry]
+    modules = [entry for entry in modules if " (frozen)>" not in entry]
+    print("Loaded startup modules:\n    {0}".format("\n    ".join(sorted(modules))))
+
+
+@section("env")
+def show_env():
+    """Details of the environment."""
     re_envs = r"^(COVER|NOSE|PEX|PIP|PY|TWINE|VIRTUALENV|WORKON)"
     re_cloak = r"API|TOKEN|KEY|SECRET|PASS|SIGNATURE"
     label = "Environment variables matching {0}".format(re_envs)
@@ -220,6 +260,8 @@ def show_encoding():
             indicates = "indicating a wide Unicode build"
         elif sys.maxunicode == 65535:
             indicates = "indicating a narrow Unicode build"
+        else:
+            indicates = "not sure what that means"
     else:
         indicates = "as all Python >=3.3 have"
     print("sys.maxunicode: {0!r}, {1}".format(sys.maxunicode, indicates))
@@ -229,6 +271,9 @@ def show_encoding():
     print("locale.getpreferredencoding(): {0!r}".format(locale.getpreferredencoding()))
     print("sys.stdin.encoding: {0!r}".format(sys.stdin.encoding))
     print("sys.stdout.encoding: {0!r}".format(sys.stdout.encoding))
+    if hasattr(os, "device_encoding"):
+        print("os.device_encoding(0) (stdin): {0!r}".format(os.device_encoding(0)))
+        print("os.device_encoding(1) (stdout): {0!r}".format(os.device_encoding(1)))
 
 
 @section("locale")
