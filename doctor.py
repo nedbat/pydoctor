@@ -171,10 +171,11 @@ def show_os():
     more_about_file(os.getcwd())
     print("Platform: {0!r}".format(platform.platform()))
     if sys.platform.startswith("linux"):
-        os_release = platform.freedesktop_os_release()
-        print("On Linux: {0!r}".format(os_release["PRETTY_NAME"]))
-        if "VERSION" in os_release:
-            print("Linux version: {0!r}".format(os_release["VERSION"]))
+        if hasattr(platform, "freedesktop_os_release"):
+            os_release = platform.freedesktop_os_release()
+            print("On Linux: {0!r}".format(os_release["PRETTY_NAME"]))
+            if "VERSION" in os_release:
+                print("Linux version: {0!r}".format(os_release["VERSION"]))
     elif sys.platform.startswith("win32"):
         print("On Windows: {0} {1} {2} {3}".format(*platform.win32_ver()))
     elif sys.platform.startswith("darwin"):
