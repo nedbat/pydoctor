@@ -32,7 +32,7 @@ import site
 import sysconfig
 
 
-DOCTOR_VERSION = 13
+DOCTOR_VERSION = 14
 
 SECTIONS = []
 SECTION_MAP = {}
@@ -101,14 +101,16 @@ def more_about_file(filename, seen=None):
         elif os.path.isdir(filename):
             if filename == ".":
                 print("which means the current directory: {0!r}".format(os.getcwd()))
+
+            writable = "writable" if os.access(filename, os.W_OK) else "not-writable"
             contents = os.listdir(filename)
             num_entries = len(contents)
             if num_entries == 0:
-                print("which is an empty directory")
+                print("which is a {0} empty directory".format(writable))
             elif num_entries == 1:
-                print("which is a directory with 1 entry: {0!r}".format(contents[0]))
+                print("which is a {0} directory with 1 entry: {1!r}".format(writable, contents[0]))
             else:
-                print("which is a directory with {0} entries:".format(num_entries))
+                print("which is a {0} directory with {1} entries:".format(writable, num_entries))
                 with indent():
                     to_show = 6
                     more = ""
