@@ -31,7 +31,7 @@ import platform
 import sysconfig
 
 
-DOCTOR_VERSION = 10
+DOCTOR_VERSION = 12
 
 SECTIONS = []
 SECTION_MAP = {}
