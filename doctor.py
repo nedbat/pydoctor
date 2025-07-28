@@ -28,10 +28,11 @@ import os
 import os.path
 import re
 import platform
+import site
 import sysconfig
 
 
-DOCTOR_VERSION = 12
+DOCTOR_VERSION = 13
 
 SECTIONS = []
 SECTION_MAP = {}
@@ -132,6 +133,7 @@ def show_version():
     """The version of Python, and other details."""
     print("Python version:\n    {0}".format(sys.version.replace("\n", "\n    ")))
     print("Python implementation: {0!r}".format(platform.python_implementation()))
+    print("Flags: {0!r}".format(sys.flags))
     if getattr(sys, '_is_gil_enabled', lambda: True)():
         print("There is a GIL")
     else:
@@ -191,7 +193,11 @@ def show_process():
     print("Tracer: {0!r}".format(sys.gettrace()))
     print("Profiler: {0!r}".format(sys.getprofile()))
     print("Recursion limit: {0!r}".format( sys.getrecursionlimit()))
-    print("Flags: {0!r}".format(sys.flags))
+
+
+@section("packages")
+def show_packages():
+    """Details of the packages available to us."""
     # Not sure if we're not filtering too much, but it still reports interesting modules
     stdlib_prefix = sysconfig.get_path("stdlib").replace("\\", "\\\\")
     modules = ["{0!r}: {1!r}".format(name, mod) for name, mod in LOADED_MODULES]
@@ -199,6 +205,19 @@ def show_process():
     modules = [entry for entry in modules if " (built-in)>" not in entry]
     modules = [entry for entry in modules if " (frozen)>" not in entry]
     print("Loaded startup modules:\n    {0}".format("\n    ".join(sorted(modules))))
+    print("site.getsitepackages():")
+    with indent():
+        for p in site.getsitepackages():
+            print(repr(p))
+            more_about_file(p)
+    print("site.getusersitepackages():")
+    with indent():
+        if site.ENABLE_USER_SITE:
+            p = site.getusersitepackages()
+            print(repr(p))
+            more_about_file(p)
+        else:
+            print("- Not enabled -")
 
 
 @section("env")
